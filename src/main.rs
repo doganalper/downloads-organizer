@@ -40,7 +40,7 @@ fn get_folder_by_extension(file_path: &str) -> String {
         "png" | "jpg" | "jpeg" | "webp" | "gif" | "svg" | "heic" => "Images",
         "mp4" | "avi" | "mov" => "Videos",
         "pdf" | "doc" | "docx" | "txt" | "ppt" | "pptx" | "csv" => "Documents",
-        _ => "Others",
+        _ => "",
     })
 }
 

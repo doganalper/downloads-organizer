@@ -35,15 +35,11 @@ fn create_dirs(dir_names: HashSet<String>) {
 }
 
 fn get_folder_by_extension(file_path: &str) -> String {
-    let file_extension = file_path.split(".").last();
-    String::from(match file_extension {
-        Some("png") | Some("jpg") | Some("jpeg") | Some("webp") | Some("gif") | Some("svg") => {
-            "Images"
-        }
-        Some("mp4") | Some("avi") | Some("mov") => "Videos",
-        Some("pdf") | Some("doc") | Some("docx") | Some("txt") | Some("ppt") | Some("pptx") => {
-            "Documents"
-        }
+    let file_extension = file_path.split(".").last().unwrap_or("").to_lowercase();
+    String::from(match file_extension.as_str() {
+        "png" | "jpg" | "jpeg" | "webp" | "gif" | "svg" | "heic" => "Images",
+        "mp4" | "avi" | "mov" => "Videos",
+        "pdf" | "doc" | "docx" | "txt" | "ppt" | "pptx" | "csv" => "Documents",
         _ => "",
     })
 }
